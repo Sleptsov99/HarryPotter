@@ -33,6 +33,9 @@ public class MyPanel extends JPanel implements MouseListener {
     Object button3 = new Object(500, 300, 100, 50);
     public MyPanel() throws IOException {
         this.hog= ImageIO.read(new File("/Users/kirillsleptsov/IdeaProjects/Harry SHprotter/src/Map Harry Potter.jpg"));
+        this.oval.Harry= ImageIO.read(new File("/Users/kirillsleptsov/IdeaProjects/Harry SHprotter/src/Гарри.png"));
+        this.oval.Hermiona=ImageIO.read(new File("/Users/kirillsleptsov/IdeaProjects/Harry SHprotter/src/Гермиона.png"));
+        this.oval.Ron=ImageIO.read(new File("/Users/kirillsleptsov/IdeaProjects/Harry SHprotter/src/Рон.png"));
         for (int i = 0; i < h; i++) {
             kletki[i] = new Kletka(i);
         }
@@ -41,15 +44,19 @@ public class MyPanel extends JPanel implements MouseListener {
 
     public void paintComponent(Graphics g) {
         g.drawImage(hog,0,0,1440,800,null);
+//        g.setColor(Color.red);
+//        g.fillRect(800,300,120,50);
+        g.setColor(Color.yellow);
+        g.fillRect(77,625,50,50);
         g.setColor(Color.red);
-        g.fillRect(800,300,120,50);
+        g.drawString("Игрок"+oval.k1,77,655);
         polya.paintPolya(g);
         oval.paint(g);
         info.PaintComponent(g);
         cube.drawCube(g);
         questions.drawQuestions(g);
-        questions.DrawAnswers(g);
-        questions.ColorRect(g);
+        questions.Exodys1(g);
+       // questions.ColorRect(g);
     }
 
     @Override
@@ -58,7 +65,7 @@ public class MyPanel extends JPanel implements MouseListener {
         info.Draw(1340,100,e.getX(),e.getY());
         count=0;
         questions.CheckandDraw(e.getX(),e.getY());
-        if ((questions.stop==0)&& (e.getX() >= 800) && (e.getX() <= 920) && (e.getY() >= 300) && (e.getY() <= 350) && (oval.k1==3) &&(count==0)) {
+        if ((questions.stop==0)&& (e.getX() >= 77) && (e.getX() <= 77+50) && (e.getY() >= 625) && (e.getY() <= 675) && (oval.k1==3) &&(count==0)) {
             cube.k = (int) (Math.random() * 7);
             if (cube.k == 0) {
                 cube.k = 1;
@@ -74,7 +81,7 @@ public class MyPanel extends JPanel implements MouseListener {
             oval.teky3=polya.polyay[polya.k];
             questions.g1=oval.l1;}
 
-        if ((e.getX() >= 800) && (e.getX() <= 920) && (e.getY() >= 300) && (e.getY() <= 350) && (oval.k1==2) &&(count==0)) {
+        if ((e.getX() >= 77) && (e.getX() <= 77+50) && (e.getY() >= 625) && (e.getY() <= 675) && (oval.k1==2) &&(count==0)) {
             cube.k = (int) (Math.random() * 7);
             if (cube.k == 0) {
                 cube.k = 1;
@@ -91,7 +98,7 @@ public class MyPanel extends JPanel implements MouseListener {
             questions.g2=oval.l2;
         }
 
-        if ((e.getX() >= 800) && (e.getX() <= 920) && (e.getY() >= 300) && (e.getY() <= 350) && (oval.k1==1) &&(count==0)) {
+        if ((e.getX() >= 77) && (e.getX() <= 77+50) && (e.getY() >= 625) && (e.getY() <= 675) && (oval.k1==1) &&(count==0)) {
             cube.k = (int) (Math.random() * 7);
             if (cube.k == 0) {
                 cube.k = 1;
@@ -109,6 +116,8 @@ public class MyPanel extends JPanel implements MouseListener {
             questions.g3=oval.l3;
         }
         info.Sravnenie();
+        questions.CheckPlayerAnswers1(e.getX(),e.getY());
+
     }
 
 
