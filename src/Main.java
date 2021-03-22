@@ -15,7 +15,17 @@ public class Main {
         JButton button1 = new JButton("Легкий вопрос");
         JButton button2 = new JButton("Средний вопрос");
         JButton button3 = new JButton("Тяжелый вопрос");
-        frame.add(myPanel);
+        Castle castle = new Castle();
+        Oval oval = new Oval(100, 100);
+        if (oval.f == 0) {
+            frame.add(myPanel);
+        }
+//        if(oval.f==1){
+//            frame.setVisible(false);
+//            frame.add(castle);
+//            frame.setVisible(true);
+//        }
+
         frame.setSize(1440, 900);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

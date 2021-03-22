@@ -21,6 +21,8 @@ public class MyPanel extends JPanel implements MouseListener {
     Oval oval = new Oval(100, 100);
     Cube cube = new Cube();
     Polya polya=new Polya();
+    Score score=new Score();
+    Castle castle=new Castle();
     Info info=new Info(100,100);
     //QuestionEasy questioneasy = new QuestionEasy(100, 300, 100, 90);
 //QuestionNormal questionNormal = new QuestionNormal(100, 300, 100, 90);
@@ -56,6 +58,10 @@ public class MyPanel extends JPanel implements MouseListener {
         cube.drawCube(g);
         questions.drawQuestions(g);
         questions.Exodys1(g);
+        score.ScoreDraw(g);
+        if(oval.f==1){
+            castle.paintComponent(g);
+        }
        // questions.ColorRect(g);
     }
 
@@ -65,7 +71,7 @@ public class MyPanel extends JPanel implements MouseListener {
         info.Draw(1340,100,e.getX(),e.getY());
         count=0;
         questions.CheckandDraw(e.getX(),e.getY());
-        if ((questions.stop==0)&& (e.getX() >= 77) && (e.getX() <= 77+50) && (e.getY() >= 625) && (e.getY() <= 675) && (oval.k1==3) &&(count==0)) {
+        if ((questions.stop==0)&& (e.getX() >= 77) && (e.getX() <= 77+50) && (e.getY() >= 625) && (e.getY() <= 675) && (oval.k1==3) &&(count==0) && (oval.l3!=26)) {
             cube.k = (int) (Math.random() * 7);
             if (cube.k == 0) {
                 cube.k = 1;
@@ -73,15 +79,18 @@ public class MyPanel extends JPanel implements MouseListener {
             count=1;
             oval.k1=1;
             oval.l3 = oval.l3+ cube.k;
-            if (oval.l3>=27){
-                oval.l3=oval.l3-27;
-            }
             polya.k=oval.l3;
+            if (oval.l3>=26){
+                oval.l3=26;
+                polya.k=26;
+                castle.f=0;
+                oval.f=1;
+            }
             oval.tekx3=polya.polyax[polya.k];
             oval.teky3=polya.polyay[polya.k];
             questions.g1=oval.l1;}
 
-        if ((e.getX() >= 77) && (e.getX() <= 77+50) && (e.getY() >= 625) && (e.getY() <= 675) && (oval.k1==2) &&(count==0)) {
+        if ((e.getX() >= 77) && (e.getX() <= 77+50) && (e.getY() >= 625) && (e.getY() <= 675) && (oval.k1==2) &&(count==0)&& (oval.l2!=26)) {
             cube.k = (int) (Math.random() * 7);
             if (cube.k == 0) {
                 cube.k = 1;
@@ -89,16 +98,20 @@ public class MyPanel extends JPanel implements MouseListener {
             oval.k1=oval.k1+1;
             count=1;
             oval.l2 = oval.l2+ cube.k;
-            if (oval.l2>=27){
-                oval.l2=oval.l2-27;
-            }
             polya.k=oval.l2;
+            if (oval.l2>=26){
+                oval.l2=26;
+                castle.f=0;
+                oval.f=1;
+                polya.k=26;
+            }
+
             oval.tekx2=polya.polyax[polya.k];
             oval.texy2=polya.polyay[polya.k];
             questions.g2=oval.l2;
         }
 
-        if ((e.getX() >= 77) && (e.getX() <= 77+50) && (e.getY() >= 625) && (e.getY() <= 675) && (oval.k1==1) &&(count==0)) {
+        if ((e.getX() >= 77) && (e.getX() <= 77+50) && (e.getY() >= 625) && (e.getY() <= 675) && (oval.k1==1) &&(count==0) && (oval.l1!=26)) {
             cube.k = (int) (Math.random() * 7);
             if (cube.k == 0) {
                 cube.k = 1;
@@ -107,17 +120,20 @@ public class MyPanel extends JPanel implements MouseListener {
             oval.l1 = oval.l1+ cube.k;
             oval.k1=2;
             count=1;
-            if (oval.l1>=27){
-                oval.l1=oval.l1-27;
-            }
             polya.k=oval.l1;
+            if (oval.l1>=26){
+                oval.l1=26;
+                castle.f=0;
+                oval.f=1;
+                polya.k=26;
+            }
             oval.tekx1=polya.polyax[polya.k];
             oval.texy1=polya.polyay[polya.k];
             questions.g3=oval.l3;
         }
         info.Sravnenie();
         questions.CheckPlayerAnswers1(e.getX(),e.getY());
-
+        score.Proverka(oval.l1,oval.l2,oval.l3);
     }
 
 
