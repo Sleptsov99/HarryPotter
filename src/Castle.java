@@ -43,7 +43,7 @@ public class Castle extends JPanel implements MouseListener {
             }
             g.setColor(Color.red);
             g.drawString("Игрок"+oval.k1,77,655);
-            oval.paint(g);
+            //oval.paint(g);
             info.PaintComponent(g);
             cube.drawCube(g);
         }

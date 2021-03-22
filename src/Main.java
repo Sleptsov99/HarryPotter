@@ -17,9 +17,9 @@ public class Main {
         JButton button3 = new JButton("Тяжелый вопрос");
         Castle castle = new Castle();
         Oval oval = new Oval(100, 100);
-        if (oval.f == 0) {
+//        if (oval.f == 0) {
             frame.add(myPanel);
-        }
+//        }
 //        if(oval.f==1){
 //            frame.setVisible(false);
 //            frame.add(castle);
