@@ -5,7 +5,7 @@ public class Score {
     int score2 = 0;
     int score3 = 0;
     int score = 0;
-    int[] scr=new int[]{score1,score2,score3};
+    int[] scr=new int[]{score1,score2,score3};//хранится количчество очков каждого игрока
     public Score() {
 
     }

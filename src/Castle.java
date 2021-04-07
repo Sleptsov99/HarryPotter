@@ -51,7 +51,6 @@ public class Castle extends JPanel implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        oval.SravnenieZnachenia(e.getX(),e.getY());
         info.Draw(1340,100,e.getX(),e.getY());
         count=0;
         questions.CheckandDraw(e.getX(),e.getY());

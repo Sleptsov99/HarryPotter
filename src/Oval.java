@@ -7,7 +7,6 @@ import java.io.IOException;
 public class Oval {
     int x;
     int y;
-    int size = 40;
     int tekx1 = 437;
     int prex1;
     int texy1 = 634;
@@ -20,12 +19,12 @@ public class Oval {
     int prex3;
     int teky3 = 634;
     int prey3;
-    int tekx11=0;
-    int tekx22=0;
-    int tekx33=0;
-    int texy11=0;
-    int texy22=0;
-    int teky33=0;
+    int tekx11 = 0;
+    int tekx22 = 0;
+    int tekx33 = 0;
+    int texy11 = 0;
+    int texy22 = 0;
+    int teky33 = 0;
     int l1 = 1;
     int prel1 = 1;
     int l2 = 1;
@@ -37,7 +36,7 @@ public class Oval {
     int y1;
     int k1 = 1;
     int p = 16;
-    int f=0;
+    int f = 0;
     int count;
     int dshag = 31;
     Cube cube = new Cube();
@@ -59,40 +58,35 @@ public class Oval {
         int[] placesy = {texy1, texy2, teky3};
         int[] preplacesx = {prex1, prex2, prex3};
         int[] preplacesy = {prey1, prey2, prey3};
-        int[] placesx1={tekx11,tekx22,tekx33};
+        int[] placesx1 = {tekx11, tekx22, tekx33};
         int[] placesy1 = {texy11, texy22, teky33};
         BufferedImage[] images = {Harry, Hermiona, Ron};
 
         //BufferedImage[] images = {Harry, Hermiona, Ron};
-        Color[] colors = {Color.BLUE, Color.RED, Color.GREEN};
         if (f == 0) {
             for (int i = 0; i < n; i++) {
-                int dx = 40;
+                int dx = 60;
                 Swipe sw = new Swipe();
-                sw.drawSwipe(g, images[i], preplaces[i], places[i], dx * (i-1));
+                sw.drawSwipe(g, images[i], preplaces[i], places[i], dx * (i - 1));
                 // g.drawImage(images[i],placesx[i]+dx,placesy[i]);
                 //g.fillOval(placesx[i]+dx,placesy[i],30,30 );
             }
         }
-        if(f==1){
-            for (int i = 0; i < n; i++) {
-                g.setColor(colors[i]);
-                int dx = 0;
-                for (int j = 0; j < i; j++) {
-                    if (places[i] == places[j]) {
-                        dx += 40;
-                    }
-                }
-                g.drawImage(images[i], placesx[i] + dx, placesy[i], 40, 40, null);
-                // g.drawImage(images[i],placesx[i]+dx,placesy[i]);
-                //g.fillOval(placesx[i]+dx,placesy[i],30,30 );
-            }
+        if (f == 1) {
+//            for (int i = 0; i < n; i++) {
+//                g.setColor(colors[i]);
+//                int dx = 0;
+//                for (int j = 0; j < i; j++) {
+//                    if (places[i] == places[j]) {
+//                        dx += 40;
+//                    }
+//                }
+//                g.drawImage(images[i], placesx[i] + dx, placesy[i], 40, 40, null);
+//                // g.drawImage(images[i],placesx[i]+dx,placesy[i]);
+//                //g.fillOval(placesx[i]+dx,placesy[i],30,30 );
+//            }
+//        }
+
         }
-        }
-
-
-
-    public void SravnenieZnachenia(int x1, int y1) {
-
     }
 }

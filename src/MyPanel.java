@@ -8,10 +8,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class MyPanel extends JPanel implements MouseListener {
-    int h = 61;
-    int p = 16;
-    int k = 0;
-    int qr = 25;
+    int h = 61;//
     int count = 0;
     BufferedImage hog;
     Kletka[] kletki = new Kletka[h];
@@ -25,12 +22,7 @@ public class MyPanel extends JPanel implements MouseListener {
     //QuestionEasy questioneasy = new QuestionEasy(100, 300, 100, 90);
 //QuestionNormal questionNormal = new QuestionNormal(100, 300, 100, 90);
 //QuestionHard questionHard=new QuestionHard(100,300,100,90);
-    Kletka kletka = new Kletka(61);
-    int dlinx = 100 + oval.size * h;
     //Object object=new Object(100,100,100,100);
-    Object button1 = new Object(100, 300, 100, 50);
-    Object button2 = new Object(300, 300, 100, 50);
-    Object button3 = new Object(500, 300, 100, 50);
 
     public MyPanel() throws IOException {
         this.hog = ImageIO.read(new File("/Users/kirillsleptsov/IdeaProjects/Harry SHprotter/src/Map Harry Potter.jpg"));
@@ -45,8 +37,6 @@ public class MyPanel extends JPanel implements MouseListener {
 
     public void paintComponent(Graphics g) {
         g.drawImage(hog, 0, 0, 1440, 800, null);
-//        g.setColor(Color.red);
-//        g.fillRect(800,300,120,50);
         g.setColor(Color.yellow);
         g.fillRect(77, 625, 50, 50);
         g.setColor(Color.red);
@@ -55,9 +45,14 @@ public class MyPanel extends JPanel implements MouseListener {
         oval.paint(g);
         info.PaintComponent(g);
         cube.drawCube(g);
-        questions.drawQuestions(g);
-        questions.Exodys1(g);
         score.ScoreDraw(g);
+        questions.drawQuestions(g);
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        questions.Exodys1(g);
         if (oval.f == 1) {
             castle.paintComponent(g);
         }
@@ -66,12 +61,8 @@ public class MyPanel extends JPanel implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        oval.SravnenieZnachenia(e.getX(), e.getY());
         info.Draw(1340, 100, e.getX(), e.getY());
         count = 0;
-        questions.CheckandDraw(e.getX(), e.getY());
-
-
         if ((questions.stop == 0) && (e.getX() >= 77) && (e.getX() <= 77 + 50) && (e.getY() >= 625) && (e.getY() <= 675) && (oval.k1 == 3) && (count == 0) && (oval.l3 != 26)) {
             cube.k = (int) (Math.random() * 7);
             new Thread(() -> new MakeSound().playSound("/Users/kirillsleptsov/IdeaProjects/Harry SHprotter/src/zapsplat_foley_battery_aa_roll_table_001.wav")).start();
@@ -160,6 +151,7 @@ public class MyPanel extends JPanel implements MouseListener {
             questions.g3 = oval.l3;
         }
         info.Sravnenie();
+        questions.CheckandDraw(e.getX(), e.getY());
         questions.CheckPlayerAnswers1(e.getX(), e.getY());
         score.Proverka(oval.l1, oval.l2, oval.l3);
     }
