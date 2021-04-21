@@ -136,6 +136,7 @@ public class MyPanel extends JPanel implements MouseListener {
         }
         info.Sravnenie();
         score.Proverka(oval.l1, oval.l2, oval.l3);
+        questions.CheckandDraw(0,0);
     }
 
 

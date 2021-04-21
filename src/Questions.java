@@ -72,10 +72,6 @@ public class Questions {
     int[] x = {200, 400, 600};
     int width = 150;
     int height = 125;
-    int NumberOfAnswer = 0;
-    int NumberOfQuestion = 0;
-    int plus;
-
     public Questions() throws IOException {
 
     }
@@ -331,11 +327,11 @@ public class Questions {
             stop = 13;
             count = 1;
         }
-        if ((100 <= getx) && (getx <= 150) && (gety >= 400) && (gety <= 450)) {//кнопка для закрытия вопросов
-            stop = 0;
-            count = 0;
-            //System.out.println("ok");
-        }
+//        if ((100 <= getx) && (getx <= 150) && (gety >= 400) && (gety <= 450)) {//кнопка для закрытия вопросов
+//            stop = 0;
+//            count = 0;
+//            //System.out.println("ok");
+//        }
 
     }
 
@@ -453,6 +449,11 @@ public class Questions {
                 g.drawString(Answers1[1], Placesx[1] + 30, Placesy[1] + 50);
                 g.setColor(Color.green);
                 g.drawString("Вы ответили правильно", 500, 100);
+                Executors.newSingleThreadScheduledExecutor().schedule(() -> {
+                    count = 0;
+                    cheking = 0;
+                    stop = 0;
+                }, 2, TimeUnit.SECONDS);
             }
             if (cheking == 2) {
                 g.setColor(Color.red);
@@ -461,12 +462,12 @@ public class Questions {
                 }
                 g.setColor(Color.red);
                 g.drawString("Вы ответили неправильно", 500, 100);
+                Executors.newSingleThreadScheduledExecutor().schedule(() -> {
+                    count = 0;
+                    cheking = 0;
+                    stop = 0;
+                }, 2, TimeUnit.SECONDS);
             }
-            Executors.newSingleThreadScheduledExecutor().schedule(() -> {
-                count = 0;
-                cheking = 0;
-                stop = 0;
-            }, 2, TimeUnit.SECONDS);
         }
 
 
@@ -489,11 +490,7 @@ public class Questions {
                 g.drawString("Вы ответили неправильно", 500, 100);
 
             }
-            Executors.newSingleThreadScheduledExecutor().schedule(() -> {
-                count = 0;
-                cheking = 0;
-                stop = 0;
-            }, 2, TimeUnit.SECONDS);
+
         }
 
         if (stop == 3) {
