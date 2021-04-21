@@ -51,42 +51,22 @@ public class Oval {
 
     }
 
+    Swipe sw = new Swipe();
     public void paint(Graphics g) {
         int[] preplaces = {prel1, prel2, prel3};
         int[] places = {l1, l2, l3};
-        int[] placesx = {tekx1, tekx2, tekx3};
-        int[] placesy = {texy1, texy2, teky3};
-        int[] preplacesx = {prex1, prex2, prex3};
-        int[] preplacesy = {prey1, prey2, prey3};
-        int[] placesx1 = {tekx11, tekx22, tekx33};
-        int[] placesy1 = {texy11, texy22, teky33};
         BufferedImage[] images = {Harry, Hermiona, Ron};
 
         //BufferedImage[] images = {Harry, Hermiona, Ron};
         if (f == 0) {
             for (int i = 0; i < n; i++) {
-                int dx = 60;
-                Swipe sw = new Swipe();
-                sw.drawSwipe(g, images[i], preplaces[i], places[i], dx * (i - 1));
+                int dx = 30;
+                sw.drawSwipe(g, i,images[i], preplaces[i], places[i], dx * (i - 1));
                 // g.drawImage(images[i],placesx[i]+dx,placesy[i]);
                 //g.fillOval(placesx[i]+dx,placesy[i],30,30 );
             }
         }
-        if (f == 1) {
-//            for (int i = 0; i < n; i++) {
-//                g.setColor(colors[i]);
-//                int dx = 0;
-//                for (int j = 0; j < i; j++) {
-//                    if (places[i] == places[j]) {
-//                        dx += 40;
-//                    }
-//                }
-//                g.drawImage(images[i], placesx[i] + dx, placesy[i], 40, 40, null);
-//                // g.drawImage(images[i],placesx[i]+dx,placesy[i]);
-//                //g.fillOval(placesx[i]+dx,placesy[i],30,30 );
-//            }
-//        }
+
 
         }
     }
-}

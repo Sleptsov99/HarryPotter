@@ -10,29 +10,32 @@ public class Main {
         new Thread(() -> new MakeSound().playSound("/Users/kirillsleptsov/IdeaProjects/Harry SHprotter/src/John Williams - Prologue.wav")).start();
         JFrame frame = new JFrame("Monopoly");
         JButton button = new JButton("The best action!");
-        CardLayout cl = new CardLayout();
         MyPanel myPanel = new MyPanel();
-        JButton button1 = new JButton("Легкий вопрос");
-        JButton button2 = new JButton("Средний вопрос");
-        JButton button3 = new JButton("Тяжелый вопрос");
-        Castle castle = new Castle();
-        Oval oval = new Oval(100, 100);
-//        if (oval.f == 0) {
-            frame.add(myPanel);
-//        }
-//        if(oval.f==1){
-//            frame.setVisible(false);
-//            frame.add(castle);
-//            frame.setVisible(true);
-//        }
-
+        int count=0;
+        Questions_1 Questions_1 = new Questions_1(myPanel);
+        CardLayout cl = new CardLayout();
+        JPanel main = new JPanel(cl);//main- содержит mypanel и questions, отображает одно а другое скрывает
+        main.add(myPanel, "m");
+        main.add(Questions_1,"q");
+        frame.setLayout(new BorderLayout());
+        frame.add(main, BorderLayout.CENTER);
         frame.setSize(1440, 900);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         while (true) {
-            frame.repaint();
+            myPanel.repaint();
+            Questions_1.repaint();
+            System.out.println(myPanel.questions.count+" "+myPanel.questions.stop);
+            if (myPanel.questions.count == 1) {
+                cl.show(main,"q");
+                System.out.println("q");
+            }
+            else {
+                cl.show(main,"m");
+                System.out.println("m");
+            }
+//            frame.repaint();
             Thread.sleep(10);
-
         }
     }
 }

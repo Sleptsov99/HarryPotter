@@ -11,13 +11,12 @@ public class MyPanel extends JPanel implements MouseListener {
     int h = 61;//
     int count = 0;
     BufferedImage hog;
-    Kletka[] kletki = new Kletka[h];
     Questions questions = new Questions();
     Oval oval = new Oval(100, 100);
     Cube cube = new Cube();
     Polya polya = new Polya();
     Score score = new Score();
-    Castle castle = new Castle();
+    Heroes heroes=new Heroes();
     Info info = new Info(100, 100);
     //QuestionEasy questioneasy = new QuestionEasy(100, 300, 100, 90);
 //QuestionNormal questionNormal = new QuestionNormal(100, 300, 100, 90);
@@ -29,9 +28,7 @@ public class MyPanel extends JPanel implements MouseListener {
         this.oval.Harry = ImageIO.read(new File("/Users/kirillsleptsov/IdeaProjects/Harry SHprotter/src/Гарри.png"));
         this.oval.Hermiona = ImageIO.read(new File("/Users/kirillsleptsov/IdeaProjects/Harry SHprotter/src/Гермиона.png"));
         this.oval.Ron = ImageIO.read(new File("/Users/kirillsleptsov/IdeaProjects/Harry SHprotter/src/Рон.png"));
-        for (int i = 0; i < h; i++) {
-            kletki[i] = new Kletka(i);
-        }
+
         this.addMouseListener(this);
     }
 
@@ -42,21 +39,11 @@ public class MyPanel extends JPanel implements MouseListener {
         g.setColor(Color.red);
         g.drawString("Игрок" + oval.k1, 77, 655);
         polya.paintPolya(g);
+        heroes.PaintHeroes(g);
         oval.paint(g);
         info.PaintComponent(g);
         cube.drawCube(g);
         score.ScoreDraw(g);
-        questions.drawQuestions(g);
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        questions.Exodys1(g);
-        if (oval.f == 1) {
-            castle.paintComponent(g);
-        }
-        // questions.ColorRect(g);
     }
 
     @Override
@@ -79,12 +66,11 @@ public class MyPanel extends JPanel implements MouseListener {
             oval.prel3 = oval.l3;
             oval.l3 = oval.l3 + cube.k;
             polya.k = oval.l3;
-            if (oval.l3 >= 26) {
-                oval.l3 = 26;
-                polya.k = 26;
-                castle.f = 0;
-                oval.f = 1;
-            }
+//            if (oval.l3 >= 26) {
+//                oval.l3 = 26;
+//                polya.k = 26;
+//                oval.f = 1;
+//            }
             oval.tekx3 = polya.polyax[polya.k];
             oval.teky3 = polya.polyay[polya.k];
             oval.tekx3 = polya.polyax[oval.prel3];
@@ -108,12 +94,12 @@ public class MyPanel extends JPanel implements MouseListener {
             oval.prel2 = oval.l2;
             oval.l2 = oval.l2 + cube.k;
             polya.k = oval.l2;
-            if (oval.l2 >= 26) {
-                oval.l2 = 26;
-                castle.f = 0;
-                oval.f = 1;
-                polya.k = 26;
-            }
+//            if (oval.l2 >= 26) {
+//                oval.l2 = 26;
+//                castle.f = 0;
+//                oval.f = 1;
+//                polya.k = 26;
+//            }
 
             oval.tekx2 = polya.polyax[polya.k];
             oval.texy2 = polya.polyay[polya.k];
@@ -138,21 +124,17 @@ public class MyPanel extends JPanel implements MouseListener {
             oval.k1 = 2;
             count = 1;
             polya.k = oval.l1;
-            if (oval.l1 >= 26) {
-                oval.l1 = 26;
-                castle.f = 0;
-                oval.f = 1;
-                polya.k = 26;
-            }
+//            if (oval.l1 >= 26) {
+//                oval.l1 = 26;
+//                castle.f = 0;
+//                oval.f = 1;
+//                polya.k = 26;
+//            }
             oval.tekx1 = polya.polyax[polya.k];
             oval.texy1 = polya.polyay[polya.k];
-//                oval.tekx3=polya.polyax[oval.prel1];
-//                oval.teky3=polya.polyay[oval.prel1];
             questions.g3 = oval.l3;
         }
         info.Sravnenie();
-        questions.CheckandDraw(e.getX(), e.getY());
-        questions.CheckPlayerAnswers1(e.getX(), e.getY());
         score.Proverka(oval.l1, oval.l2, oval.l3);
     }
 

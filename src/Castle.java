@@ -23,7 +23,6 @@ public class Castle extends JPanel implements MouseListener {
     int k=0;
     int t= oval.f;
     public Castle() throws IOException {
-        this.zamok = ImageIO.read(new File("/Users/kirillsleptsov/IdeaProjects/Harry SHprotter/src/Замок Путина.jpg"));
         this.oval.Harry= ImageIO.read(new File("/Users/kirillsleptsov/IdeaProjects/Harry SHprotter/src/Гарри.png"));
         this.oval.Hermiona=ImageIO.read(new File("/Users/kirillsleptsov/IdeaProjects/Harry SHprotter/src/Гермиона.png"));
         this.oval.Ron=ImageIO.read(new File("/Users/kirillsleptsov/IdeaProjects/Harry SHprotter/src/Рон.png"));
