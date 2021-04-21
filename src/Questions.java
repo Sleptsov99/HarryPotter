@@ -270,7 +270,7 @@ public class Questions {
     }
 
     public void CheckandDraw(int getx, int gety) {
-        if ((g1 >= 5 && oval.k1 == 1) || (g2 == 5 && oval.k1 == 2) || ((g3 == 6) && (oval.k1 == 3))) {
+        if ((g1 >= 1 && oval.k1 == 1) || (g2 == 5 && oval.k1 == 2) || ((g3 == 6) && (oval.k1 == 3))) {
             stop = 1;
             count = 1;
         }

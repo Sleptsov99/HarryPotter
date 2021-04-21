@@ -11,7 +11,6 @@ public class Main {
         JFrame frame = new JFrame("Monopoly");
         JButton button = new JButton("The best action!");
         MyPanel myPanel = new MyPanel();
-        int count=0;
         Questions_1 Questions_1 = new Questions_1(myPanel);
         CardLayout cl = new CardLayout();
         JPanel main = new JPanel(cl);//main- содержит mypanel и questions, отображает одно а другое скрывает
