@@ -7,7 +7,6 @@ import java.util.concurrent.TimeUnit;
 
 public class Questions {
     int stop = 0;
-    Score score = new Score();
     int g1 = 0;
     int g2 = 0;
     int g3 = 0;
@@ -266,7 +265,7 @@ public class Questions {
     }
 
     public void CheckandDraw(int getx, int gety) {
-        if ((g1 >= 1 && oval.k1 == 1) || (g2 == 5 && oval.k1 == 2) || ((g3 == 6) && (oval.k1 == 3))) {
+        if ((g1 ==5 && oval.k1 == 1) || (g2 == 5 && oval.k1 == 2) || ((g3 == 6) && (oval.k1 == 3))) {
             stop = 1;
             count = 1;
         }
@@ -346,28 +345,28 @@ public class Questions {
             }
         }
         if (stop == 2) {
-            if ((x >= Placesx[1]) && (x <= Placesx[1] + width) && (y >= Placesy[1]) && (y <= Placesy[1] + height)) {
-                cheking = 1;
-            } else {
-                cheking = 2;
-            }
-        }
-        if (stop == 3) {
             if ((x >= Placesx[2]) && (x <= Placesx[2] + width) && (y >= Placesy[2]) && (y <= Placesy[2] + height)) {
                 cheking = 1;
             } else {
                 cheking = 2;
             }
         }
+        if (stop == 3) {
+            if ((x >= Placesx[1]) && (x <= Placesx[1] + width) && (y >= Placesy[1]) && (y <= Placesy[1] + height)) {
+                cheking = 1;
+            } else {
+                cheking = 2;
+            }
+        }
         if (stop == 4) {
-            if ((x >= Placesx[3]) && (x <= Placesx[3] + width) && (y >= Placesy[3]) && (y <= Placesy[3] + height)) {
+            if ((x >= Placesx[2]) && (x <= Placesx[2] + width) && (y >= Placesy[2]) && (y <= Placesy[2] + height)) {
                 cheking = 1;
             } else {
                 cheking = 2;
             }
         }
         if (stop == 5) {
-            if ((x >= Placesx[3]) && (x <= Placesx[3] + width) && (y >= Placesy[3]) && (y <= Placesy[3] + height)) {
+            if ((x >= Placesx[2]) && (x <= Placesx[2] + width) && (y >= Placesy[2]) && (y <= Placesy[2] + height)) {
                 cheking = 1;
             } else {
                 cheking = 2;
@@ -375,14 +374,6 @@ public class Questions {
         }
 
         if (stop == 6) {
-            if ((x >= Placesx[3]) && (x <= Placesx[3] + width) && (y >= Placesy[3]) && (y <= Placesy[3] + height)) {
-                cheking = 1;
-            } else {
-                cheking = 2;
-            }
-        }
-
-        if (stop == 7) {
             if ((x >= Placesx[2]) && (x <= Placesx[2] + width) && (y >= Placesy[2]) && (y <= Placesy[2] + height)) {
                 cheking = 1;
             } else {
@@ -390,8 +381,16 @@ public class Questions {
             }
         }
 
+        if (stop == 7) {
+            if ((x >= Placesx[1]) && (x <= Placesx[1] + width) && (y >= Placesy[1]) && (y <= Placesy[1] + height)) {
+                cheking = 1;
+            } else {
+                cheking = 2;
+            }
+        }
+
         if (stop == 8) {
-            if ((x >= Placesx[3]) && (x <= Placesx[3] + width) && (y >= Placesy[3]) && (y <= Placesy[3] + height)) {
+            if ((x >= Placesx[2]) && (x <= Placesx[2] + width) && (y >= Placesy[2]) && (y <= Placesy[2] + height)) {
                 cheking = 1;
             } else {
                 cheking = 2;
@@ -399,7 +398,7 @@ public class Questions {
         }
 
         if (stop == 9) {
-            if ((x >= Placesx[1]) && (x <= Placesx[1] + width) && (y >= Placesy[1]) && (y <= Placesy[1] + height)) {
+            if ((x >= Placesx[0]) && (x <= Placesx[0] + width) && (y >= Placesy[0]) && (y <= Placesy[0] + height)) {
                 cheking = 1;
             } else {
                 cheking = 2;
@@ -407,7 +406,7 @@ public class Questions {
         }
 
         if (stop == 10) {
-            if ((x >= Placesx[3]) && (x <= Placesx[3] + width) && (y >= Placesy[3]) && (y <= Placesy[3] + height)) {
+            if ((x >= Placesx[2]) && (x <= Placesx[2] + width) && (y >= Placesy[2]) && (y <= Placesy[2] + height)) {
                 cheking = 1;
             } else {
                 cheking = 2;
@@ -415,7 +414,7 @@ public class Questions {
         }
 
         if (stop == 11) {
-            if ((x >= Placesx[0]) && (x <= Placesx[0] + width) && (y >= Placesy[0]) && (y <= Placesy[0] + height)) {
+            if ((x >= Placesx[2]) && (x <= Placesx[2] + width) && (y >= Placesy[2]) && (y <= Placesy[2] + height)) {
                 cheking = 1;
             } else {
                 cheking = 2;
@@ -423,14 +422,14 @@ public class Questions {
         }
 
         if (stop == 12) {
-            if ((x >= Placesx[0]) && (x <= Placesx[0] + width) && (y >= Placesy[0]) && (y <= Placesy[0] + height)) {
+            if ((x >= Placesx[2]) && (x <= Placesx[2] + width) && (y >= Placesy[2]) && (y <= Placesy[2] + height)) {
                 cheking = 1;
             } else {
                 cheking = 2;
             }
         }
         if (stop == 13) {
-            if ((x >= Placesx[1]) && (x <= Placesx[1] + width) && (y >= Placesy[1]) && (y <= Placesy[1] + height)) {
+            if ((x >= Placesx[0]) && (x <= Placesx[0] + width) && (y >= Placesy[0]) && (y <= Placesy[0] + height)) {
                 cheking = 1;
             } else {
                 cheking = 2;
@@ -476,19 +475,28 @@ public class Questions {
 //            g.setColor(Color.white);
 //            g.fillRect();
                 g.setColor(Color.green);
-                g.fillRect(Placesx[1], Placesy[1], width, height);
+                g.fillRect(Placesx[2], Placesy[2], width, height);
                 g.setColor(Color.white);
-                g.drawString(Answers2[1], Placesx[1] + 30, Placesy[1] + 50);
+                g.drawString(Answers2[3], Placesx[2] + 20, Placesy[1] + 50);
                 g.setColor(Color.green);
                 g.drawString("Вы ответили правильно", 500, 100);
-            } else {
+                Executors.newSingleThreadScheduledExecutor().schedule(() -> {
+                    count = 0;
+                    cheking = 0;
+                    stop = 0;
+                }, 2, TimeUnit.SECONDS);
+            } if(cheking==2) {
                 g.setColor(Color.red);
                 for (int k = 0; k < 3; k++) {
                     g.fillRect(Placesx[k], Placesy[k], width, height);
                 }
                 g.setColor(Color.red);
                 g.drawString("Вы ответили неправильно", 500, 100);
-
+                Executors.newSingleThreadScheduledExecutor().schedule(() -> {
+                    count = 0;
+                    cheking = 0;
+                    stop = 0;
+                }, 2, TimeUnit.SECONDS);
             }
 
         }
@@ -498,24 +506,31 @@ public class Questions {
 //            g.setColor(Color.white);
 //            g.fillRect();
                 g.setColor(Color.green);
-                g.fillRect(Placesx[2], Placesy[2], width, height);
+                g.fillRect(Placesx[1], Placesy[1], width, height);
                 g.setColor(Color.white);
-                g.drawString(Answers3[2], Placesx[2] + 30, Placesy[2] + 50);
+                g.drawString(Answers3[2], Placesx[1] + 30, Placesy[2] + 50);
                 g.setColor(Color.green);
                 g.drawString("Вы ответили правильно", 500, 100);
-            } else {
+                Executors.newSingleThreadScheduledExecutor().schedule(() -> {
+                    count = 0;
+                    cheking = 0;
+                    stop = 0;
+                }, 2, TimeUnit.SECONDS);
+            }
+            if(cheking==2){
                 g.setColor(Color.red);
                 for (int k = 0; k < 3; k++) {
                     g.fillRect(Placesx[k], Placesy[k], width, height);
                 }
                 g.setColor(Color.red);
                 g.drawString("Вы ответили неправильно", 500, 100);
+                Executors.newSingleThreadScheduledExecutor().schedule(() -> {
+                    count = 0;
+                    cheking = 0;
+                    stop = 0;
+                }, 2, TimeUnit.SECONDS);
             }
-            Executors.newSingleThreadScheduledExecutor().schedule(() -> {
-                count = 0;
-                cheking = 0;
-                stop = 0;
-            }, 2, TimeUnit.SECONDS);
+
         }
 
         if (stop == 4) {
@@ -528,20 +543,26 @@ public class Questions {
                 g.drawString(Answers4[3], Placesx[3] + 30, Placesy[0] + 50);
                 g.setColor(Color.green);
                 g.drawString("Вы ответили правильно", 500, 100);
-            } else {
+                Executors.newSingleThreadScheduledExecutor().schedule(() -> {
+                    count = 0;
+                    cheking = 0;
+                    stop = 0;
+                }, 2, TimeUnit.SECONDS);
+            }
+            if(cheking==2){
                 g.setColor(Color.red);
                 for (int k = 0; k < 3; k++) {
                     g.fillRect(Placesx[k], Placesy[k], width, height);
                 }
                 g.setColor(Color.red);
                 g.drawString("Вы ответили неправильно", 500, 100);
+                Executors.newSingleThreadScheduledExecutor().schedule(() -> {
+                    count = 0;
+                    cheking = 0;
+                    stop = 0;
+                }, 2, TimeUnit.SECONDS);
 
             }
-            Executors.newSingleThreadScheduledExecutor().schedule(() -> {
-                count = 0;
-                cheking = 0;
-                stop = 0;
-            }, 2, TimeUnit.SECONDS);
         }
         if (stop == 5) {
             if (cheking == 1) {
@@ -551,6 +572,11 @@ public class Questions {
                 g.drawString(Answers5[3], Placesx[3] + 30, Placesy[1] + 50);
                 g.setColor(Color.green);
                 g.drawString("Вы ответили правильно", 500, 100);
+                Executors.newSingleThreadScheduledExecutor().schedule(() -> {
+                    count = 0;
+                    cheking = 0;
+                    stop = 0;
+                }, 2, TimeUnit.SECONDS);
 
             }
             if (cheking == 2) {
@@ -560,13 +586,12 @@ public class Questions {
                 }
                 g.setColor(Color.red);
                 g.drawString("Вы ответили неправильно", 500, 100);
-
-
-            }Executors.newSingleThreadScheduledExecutor().schedule(() -> {
-                count = 0;
-                cheking = 0;
-                stop = 0;
-            }, 2, TimeUnit.SECONDS);
+                Executors.newSingleThreadScheduledExecutor().schedule(() -> {
+                    count = 0;
+                    cheking = 0;
+                    stop = 0;
+                }, 2, TimeUnit.SECONDS);
+            }
         }
 
         if (stop == 6) {
@@ -577,6 +602,11 @@ public class Questions {
                 g.drawString(Answers5[3], Placesx[3] + 30, Placesy[1] + 50);
                 g.setColor(Color.green);
                 g.drawString("Вы ответили правильно", 500, 100);
+                Executors.newSingleThreadScheduledExecutor().schedule(() -> {
+                    count = 0;
+                    cheking = 0;
+                    stop = 0;
+                }, 2, TimeUnit.SECONDS);
 
             }
             if (cheking == 2) {
@@ -586,12 +616,12 @@ public class Questions {
                 }
                 g.setColor(Color.red);
                 g.drawString("Вы ответили неправильно", 500, 100);
+                Executors.newSingleThreadScheduledExecutor().schedule(() -> {
+                    count = 0;
+                    cheking = 0;
+                    stop = 0;
+                }, 2, TimeUnit.SECONDS);
             }
-            Executors.newSingleThreadScheduledExecutor().schedule(() -> {
-                count = 0;
-                cheking = 0;
-                stop = 0;
-            }, 2, TimeUnit.SECONDS);
         }
         if (stop == 7) {
             if (cheking == 1) {
@@ -601,6 +631,11 @@ public class Questions {
                 g.drawString(Answers5[2], Placesx[2] + 30, Placesy[1] + 50);
                 g.setColor(Color.green);
                 g.drawString("Вы ответили правильно", 500, 100);
+                Executors.newSingleThreadScheduledExecutor().schedule(() -> {
+                    count = 0;
+                    cheking = 0;
+                    stop = 0;
+                }, 2, TimeUnit.SECONDS);
             }
             if (cheking == 2) {
                 g.setColor(Color.red);
@@ -609,13 +644,13 @@ public class Questions {
                 }
                 g.setColor(Color.red);
                 g.drawString("Вы ответили неправильно", 500, 100);
-
+                Executors.newSingleThreadScheduledExecutor().schedule(() -> {
+                    count = 0;
+                    cheking = 0;
+                    stop = 0;
+                }, 2, TimeUnit.SECONDS);
             }
-            Executors.newSingleThreadScheduledExecutor().schedule(() -> {
-                count = 0;
-                cheking = 0;
-                stop = 0;
-            }, 2, TimeUnit.SECONDS);
+
         }
         if (stop == 8) {
             if (cheking == 1) {
@@ -625,6 +660,11 @@ public class Questions {
                 g.drawString(Answers5[3], Placesx[3] + 30, Placesy[1] + 50);
                 g.setColor(Color.green);
                 g.drawString("Вы ответили правильно", 500, 100);
+                Executors.newSingleThreadScheduledExecutor().schedule(() -> {
+                    count = 0;
+                    cheking = 0;
+                    stop = 0;
+                }, 2, TimeUnit.SECONDS);
             }
             if (cheking == 2) {
                 g.setColor(Color.red);
@@ -633,12 +673,12 @@ public class Questions {
                 }
                 g.setColor(Color.red);
                 g.drawString("Вы ответили неправильно", 500, 100);
-
-            }Executors.newSingleThreadScheduledExecutor().schedule(() -> {
-                count = 0;
-                cheking = 0;
-                stop = 0;
-            }, 2, TimeUnit.SECONDS);
+                Executors.newSingleThreadScheduledExecutor().schedule(() -> {
+                    count = 0;
+                    cheking = 0;
+                    stop = 0;
+                }, 2, TimeUnit.SECONDS);
+            }
         }
         if (stop == 9) {
             if (cheking == 1) {
@@ -648,7 +688,11 @@ public class Questions {
                 g.drawString(Answers5[1], Placesx[1] + 30, Placesy[1] + 50);
                 g.setColor(Color.green);
                 g.drawString("Вы ответили правильно", 500, 100);
-
+                Executors.newSingleThreadScheduledExecutor().schedule(() -> {
+                    count = 0;
+                    cheking = 0;
+                    stop = 0;
+                }, 2, TimeUnit.SECONDS);
             }
             if (cheking == 2) {
                 g.setColor(Color.red);
@@ -657,12 +701,12 @@ public class Questions {
                 }
                 g.setColor(Color.red);
                 g.drawString("Вы ответили неправильно", 500, 100);
+                Executors.newSingleThreadScheduledExecutor().schedule(() -> {
+                    count = 0;
+                    cheking = 0;
+                    stop = 0;
+                }, 2, TimeUnit.SECONDS);
             }
-            Executors.newSingleThreadScheduledExecutor().schedule(() -> {
-                count = 0;
-                cheking = 0;
-                stop = 0;
-            }, 2, TimeUnit.SECONDS);
         }
         if (stop == 10) {
             if (cheking == 1) {
@@ -672,6 +716,11 @@ public class Questions {
                 g.drawString(Answers5[3], Placesx[3] + 30, Placesy[1] + 50);
                 g.setColor(Color.green);
                 g.drawString("Вы ответили правильно", 500, 100);
+                Executors.newSingleThreadScheduledExecutor().schedule(() -> {
+                    count = 0;
+                    cheking = 0;
+                    stop = 0;
+                }, 2, TimeUnit.SECONDS);
 
             }
             if (cheking == 2) {
@@ -681,12 +730,12 @@ public class Questions {
                 }
                 g.setColor(Color.red);
                 g.drawString("Вы ответили неправильно", 500, 100);
+                Executors.newSingleThreadScheduledExecutor().schedule(() -> {
+                    count = 0;
+                    cheking = 0;
+                    stop = 0;
+                }, 2, TimeUnit.SECONDS);
             }
-            Executors.newSingleThreadScheduledExecutor().schedule(() -> {
-                count = 0;
-                cheking = 0;
-                stop = 0;
-            }, 2, TimeUnit.SECONDS);
         }
         if (stop == 11) {
             if (cheking == 1) {
@@ -696,6 +745,11 @@ public class Questions {
                 g.drawString(Answers5[3], Placesx[3] + 30, Placesy[1] + 50);
                 g.setColor(Color.green);
                 g.drawString("Вы ответили правильно", 500, 100);
+                Executors.newSingleThreadScheduledExecutor().schedule(() -> {
+                    count = 0;
+                    cheking = 0;
+                    stop = 0;
+                }, 2, TimeUnit.SECONDS);
 
             }
             if (cheking == 2) {
@@ -705,12 +759,13 @@ public class Questions {
                 }
                 g.setColor(Color.red);
                 g.drawString("Вы ответили неправильно", 500, 100);
+                Executors.newSingleThreadScheduledExecutor().schedule(() -> {
+                    count = 0;
+                    cheking = 0;
+                    stop = 0;
+                }, 2, TimeUnit.SECONDS);
             }
-            Executors.newSingleThreadScheduledExecutor().schedule(() -> {
-                count = 0;
-                cheking = 0;
-                stop = 0;
-            }, 2, TimeUnit.SECONDS);
+
         }
         if (stop == 12) {
             if (cheking == 1) {
@@ -720,6 +775,11 @@ public class Questions {
                 g.drawString(Answers5[3], Placesx[3] + 30, Placesy[1] + 50);
                 g.setColor(Color.green);
                 g.drawString("Вы ответили правильно", 500, 100);
+                Executors.newSingleThreadScheduledExecutor().schedule(() -> {
+                    count = 0;
+                    cheking = 0;
+                    stop = 0;
+                }, 2, TimeUnit.SECONDS);
 
             }
             if (cheking == 2) {
@@ -729,12 +789,12 @@ public class Questions {
                 }
                 g.setColor(Color.red);
                 g.drawString("Вы ответили неправильно", 500, 100);
+                Executors.newSingleThreadScheduledExecutor().schedule(() -> {
+                    count = 0;
+                    cheking = 0;
+                    stop = 0;
+                }, 2, TimeUnit.SECONDS);
             }
-            Executors.newSingleThreadScheduledExecutor().schedule(() -> {
-                count = 0;
-                cheking = 0;
-                stop = 0;
-            }, 2, TimeUnit.SECONDS);
         }
         if (stop == 13) {
             if (cheking == 1) {
@@ -744,7 +804,11 @@ public class Questions {
                 g.drawString(Answers5[1], Placesx[1] + 30, Placesy[1] + 50);
                 g.setColor(Color.green);
                 g.drawString("Вы ответили правильно", 500, 100);
-
+                Executors.newSingleThreadScheduledExecutor().schedule(() -> {
+                    count = 0;
+                    cheking = 0;
+                    stop = 0;
+                }, 2, TimeUnit.SECONDS);
             }
             if (cheking == 2) {
                 g.setColor(Color.red);
@@ -753,14 +817,13 @@ public class Questions {
                 }
                 g.setColor(Color.red);
                 g.drawString("Вы ответили неправильно", 500, 100);
-
+                Executors.newSingleThreadScheduledExecutor().schedule(() -> {
+                    count = 0;
+                    cheking = 0;
+                    stop = 0;
+                }, 2, TimeUnit.SECONDS);
 
             }
-            Executors.newSingleThreadScheduledExecutor().schedule(() -> {
-                count = 0;
-                cheking = 0;
-                stop = 0;
-            }, 2, TimeUnit.SECONDS);
         }
     }
 }

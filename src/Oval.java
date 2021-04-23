@@ -52,21 +52,19 @@ public class Oval {
     }
 
     Swipe sw = new Swipe();
+
     public void paint(Graphics g) {
         int[] preplaces = {prel1, prel2, prel3};
         int[] places = {l1, l2, l3};
         BufferedImage[] images = {Harry, Hermiona, Ron};
 
-        //BufferedImage[] images = {Harry, Hermiona, Ron};
         if (f == 0) {
             for (int i = 0; i < n; i++) {
                 int dx = 30;
-                sw.drawSwipe(g, i,images[i], preplaces[i], places[i], dx * (i - 1));
-                // g.drawImage(images[i],placesx[i]+dx,placesy[i]);
-                //g.fillOval(placesx[i]+dx,placesy[i],30,30 );
+                sw.drawSwipe(g, i, images[i], preplaces[i], places[i], dx * (i - 1));
             }
         }
 
 
-        }
     }
+}

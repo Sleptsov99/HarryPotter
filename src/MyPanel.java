@@ -18,6 +18,7 @@ public class MyPanel extends JPanel implements MouseListener {
     Score score = new Score();
     Heroes heroes=new Heroes();
     Info info = new Info(100, 100);
+
     //QuestionEasy questioneasy = new QuestionEasy(100, 300, 100, 90);
 //QuestionNormal questionNormal = new QuestionNormal(100, 300, 100, 90);
 //QuestionHard questionHard=new QuestionHard(100,300,100,90);
@@ -41,9 +42,9 @@ public class MyPanel extends JPanel implements MouseListener {
         polya.paintPolya(g);
         heroes.PaintHeroes(g);
         oval.paint(g);
-        info.PaintComponent(g);
         cube.drawCube(g);
         score.ScoreDraw(g);
+        info.PaintComponent(g);
     }
 
     @Override

@@ -12,8 +12,20 @@ public class Main {
         JButton button = new JButton("The best action!");
         MyPanel myPanel = new MyPanel();
         Questions_1 Questions_1 = new Questions_1(myPanel);
+        JPanel start = new JPanel(null){
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                g.setColor(Color.RED);
+                g.fillRect(0,0,1440,900);
+            }
+        };
+        JButton jb = new JButton("Start");
+        jb.setBounds(1440/2-100/2, 900/2-100/2,100,100);
+        start.add(jb);
         CardLayout cl = new CardLayout();
         JPanel main = new JPanel(cl);//main- содержит mypanel и questions, отображает одно а другое скрывает
+        main.add(start, "s");
         main.add(myPanel, "m");
         main.add(Questions_1,"q");
         frame.setLayout(new BorderLayout());
@@ -21,20 +33,29 @@ public class Main {
         frame.setSize(1440, 900);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        while (true) {
-            myPanel.repaint();
-            Questions_1.repaint();
-            System.out.println(myPanel.questions.count+" "+myPanel.questions.stop);
-            if (myPanel.questions.count == 1) {
-                cl.show(main,"q");
-                System.out.println("q");
+        jb.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new Thread(()->{
+                    while (true) {
+                        myPanel.repaint();
+                        Questions_1.repaint();
+                        System.out.println(myPanel.questions.count + " " + myPanel.questions.stop);
+                        if (myPanel.questions.count == 1) {
+                            cl.show(main, "q");
+                            System.out.println("q");
+                        } else {
+                            cl.show(main, "m");
+                            System.out.println("m");
+                        }
+                        try {
+                            Thread.sleep(10);
+                        } catch (InterruptedException interruptedException) {
+                            interruptedException.printStackTrace();
+                        }
+                    }
+                }).start();
             }
-            else {
-                cl.show(main,"m");
-                System.out.println("m");
-            }
-//            frame.repaint();
-            Thread.sleep(10);
-        }
+        });
     }
 }
