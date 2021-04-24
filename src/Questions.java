@@ -11,8 +11,6 @@ public class Questions {
     int count = 0;
     int player=0;
     Moving move=new Moving(0,0);
-    Score score=new Score();
-    Lamp lamp=new Lamp();
     int cheking = 0;//проверка на правильность ответа
     String[] Answers1 = {"С какой платформы Кингс-Кросс отправляется Хогвартс-экспресс?",
             "Восемь и одна четверть",
@@ -341,7 +339,7 @@ public class Questions {
         if (stop == 1) {
             if ((x >= Placesx[1]) && (x <= Placesx[1] + width) && (y >= Placesy[1]) && (y <= Placesy[1] + height)) {
                 cheking = 1;
-                score.znach[player]+=2;
+
             }
             if (((x >= Placesx[2]) && (x <= Placesx[2] + width) && (y >= Placesy[2]) && (y <= Placesy[2] + height)) || ((x >= Placesx[0]) && (x <= Placesx[0] + width) && (y >= Placesy[0]) && (y <= Placesy[0] + height))) {
                 cheking = 2;

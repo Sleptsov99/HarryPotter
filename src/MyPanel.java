@@ -20,6 +20,7 @@ public class MyPanel extends JPanel implements MouseListener {
     Info info = new Info(100, 100);
     End end=new End();
 
+
     //QuestionEasy questioneasy = new QuestionEasy(100, 300, 100, 90);
 //QuestionNormal questionNormal = new QuestionNormal(100, 300, 100, 90);
 //QuestionHard questionHard=new QuestionHard(100,300,100,90);
@@ -133,6 +134,9 @@ public class MyPanel extends JPanel implements MouseListener {
             move.tekx1 = polya.polyax[polya.k];
             move.texy1 = polya.polyay[polya.k];
             questions.g3 = move.l3;
+        }
+        if(questions.cheking==1){
+            score.znach[move.k1-1]=2;
         }
         info.Sravnenie();
         score.Proverka(move.l1, move.l2, move.l3);

@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public class Main {
@@ -11,16 +12,18 @@ public class Main {
         JFrame frame = new JFrame("Monopoly");
         JButton button = new JButton("The best action!");
         MyPanel myPanel = new MyPanel();
+        End end=new End();
         Questions_1 Questions_1 = new Questions_1(myPanel);
         JPanel start = new JPanel(null){
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                g.setColor(Color.RED);
-                g.fillRect(0,0,1440,900);
+                g.drawImage(end.back,0,0,1440,800,null);
+                g.drawImage(end.left,100,100,225,400,null);
+                g.drawImage(end.right,800,100,464,600,null );
             }
         };
-        JButton jb = new JButton("Start");
+        JButton jb = new JButton("Let's go!");
         jb.setBounds(1440/2-100/2, 900/2-100/2,100,100);
         start.add(jb);
         CardLayout cl = new CardLayout();//Он определяет, как объекты в панели будут располагаться
