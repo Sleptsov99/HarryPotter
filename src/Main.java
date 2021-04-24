@@ -43,10 +43,10 @@ public class Main {
                         System.out.println(myPanel.questions.count + " " + myPanel.questions.stop);
                         if (myPanel.questions.count == 1) {
                             cl.show(main, "q");
-                            System.out.println("q");
+                           // System.out.println("q");
                         } else {
                             cl.show(main, "m");
-                            System.out.println("m");
+                            //System.out.println("m");
                         }
                         try {
                             Thread.sleep(10);
