@@ -4,7 +4,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class Oval {
+public class Moving {
     int x;
     int y;
     int tekx1 = 437;
@@ -39,13 +39,12 @@ public class Oval {
     int f = 0;
     int count;
     int dshag = 31;
-    Cube cube = new Cube();
     BufferedImage Harry;
     BufferedImage Hermiona;
     BufferedImage Ron;
 
 
-    public Oval(int x, int y) throws IOException {
+    public Moving(int x, int y) throws IOException {
         this.x = x;
         this.y = y;
 

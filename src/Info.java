@@ -47,18 +47,18 @@ public class Info {
         if (count == 1) {
             g.setColor(Color.WHITE);
             g.fillRect(0, 0, 1440, 900);
-            g.drawImage(Dambldor, 400, 200, 800, 650, null);
+            g.drawImage(Dambldor, 400, 200, 886, 324, null);
 
         }
         if(count==2){
             g.setColor(Color.WHITE);
             g.fillRect(0, 0, 1440, 900);
-            g.drawImage(Harry, 400, 200, 800, 650, null);
+            g.drawImage(Harry, 400, 200, 860, 576, null);
         }
         if(count==3){
             g.setColor(Color.WHITE);
             g.fillRect(0, 0, 1440, 900);
-            g.drawImage(Snegg, 400, 200, 900, 650, null);
+            g.drawImage(Snegg, 400, 200, 908, 250, null);
         }
     }
 

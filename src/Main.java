@@ -23,7 +23,7 @@ public class Main {
         JButton jb = new JButton("Start");
         jb.setBounds(1440/2-100/2, 900/2-100/2,100,100);
         start.add(jb);
-        CardLayout cl = new CardLayout();
+        CardLayout cl = new CardLayout();//Он определяет, как объекты в панели будут располагаться
         JPanel main = new JPanel(cl);//main- содержит mypanel и questions, отображает одно а другое скрывает
         main.add(start, "s");
         main.add(myPanel, "m");

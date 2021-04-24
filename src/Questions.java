@@ -1,8 +1,6 @@
 import java.awt.*;
 import java.io.IOException;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 public class Questions {
@@ -11,8 +9,10 @@ public class Questions {
     int g2 = 0;
     int g3 = 0;
     int count = 0;
-    int[] players = {0, 1, 2, 3};
-    Oval oval = new Oval(100, 100);
+    int player=0;
+    Moving move=new Moving(0,0);
+    Score score=new Score();
+    Lamp lamp=new Lamp();
     int cheking = 0;//проверка на правильность ответа
     String[] Answers1 = {"С какой платформы Кингс-Кросс отправляется Хогвартс-экспресс?",
             "Восемь и одна четверть",
@@ -265,64 +265,64 @@ public class Questions {
     }
 
     public void CheckandDraw(int getx, int gety) {
-        if ((g1 ==5 && oval.k1 == 1) || (g2 == 5 && oval.k1 == 2) || ((g3 == 6) && (oval.k1 == 3))) {
+        if ((g1 >=5 && move.k1 == 1) || (g2 == 5 && move.k1 == 2) || ((g3 == 6) && (move.k1 == 3))) {
             stop = 1;
             count = 1;
         }
-        if ((g1 == 10 && oval.k1 == 1) || (g2 == 10 && oval.k1 == 2) || ((g3 == 10) && (oval.k1 == 3))) {
+        if ((g1 == 10 && move.k1 == 1) || (g2 == 10 && move.k1 == 2) || ((g3 == 10) && (move.k1 == 3))) {
             stop = 2;
             count = 1;
         }
-        if ((g1 == 12 && oval.k1 == 1) || (g2 == 14 && oval.k1 == 2) || ((g3 == 16) && (oval.k1 == 3))) {
+        if ((g1 == 12 && move.k1 == 1) || (g2 == 14 && move.k1 == 2) || ((g3 == 16) && (move.k1 == 3))) {
             stop = 3;
             count = 1;
         }
 
-        if ((g1 == 13 && oval.k1 == 1) || (g2 == 15 && oval.k1 == 2) || ((g3 == 17) && (oval.k1 == 3))) {
+        if ((g1 == 13 && move.k1 == 1) || (g2 == 15 && move.k1 == 2) || ((g3 == 17) && (move.k1 == 3))) {
             stop = 4;
             count = 1;
         }
 
-        if ((g1 == 18 && oval.k1 == 1) || (g2 == 21 && oval.k1 == 2) || ((g3 == 19) && (oval.k1 == 3))) {
+        if ((g1 == 18 && move.k1 == 1) || (g2 == 21 && move.k1 == 2) || ((g3 == 19) && (move.k1 == 3))) {
             stop = 5;
             count = 1;
         }
 
-        if ((g1 == 22 && oval.k1 == 1) || (g2 == 22 && oval.k1 == 2) || ((g3 == 22) && (oval.k1 == 3))) {
+        if ((g1 == 22 && move.k1 == 1) || (g2 == 22 && move.k1 == 2) || ((g3 == 22) && (move.k1 == 3))) {
             stop = 6;
             count = 1;
         }
 
-        if ((g1 == 28 && oval.k1 == 1) || (g2 == 28 && oval.k1 == 2) || ((g3 == 28) && (oval.k1 == 3))) {
+        if ((g1 == 28 && move.k1 == 1) || (g2 == 28 && move.k1 == 2) || ((g3 == 28) && (move.k1 == 3))) {
             stop = 7;
             count = 1;
         }
 
-        if ((g1 == 32 && oval.k1 == 1) || (g2 == 32 && oval.k1 == 2) || ((g3 == 32) && (oval.k1 == 3))) {
+        if ((g1 == 32 && move.k1 == 1) || (g2 == 32 && move.k1 == 2) || ((g3 == 32) && (move.k1 == 3))) {
             stop = 8;
             count = 1;
         }
 
-        if ((g1 == 38 && oval.k1 == 1) || (g2 == 36 && oval.k1 == 2) || ((g3 == 33) && (oval.k1 == 3))) {
+        if ((g1 == 38 && move.k1 == 1) || (g2 == 36 && move.k1 == 2) || ((g3 == 33) && (move.k1 == 3))) {
             stop = 9;
             count = 1;
         }
 
-        if ((g1 == 40 && oval.k1 == 1) || (g2 == 40 && oval.k1 == 2) || ((g3 == 40) && (oval.k1 == 3))) {
+        if ((g1 == 40 && move.k1 == 1) || (g2 == 40 && move.k1 == 2) || ((g3 == 40) && (move.k1 == 3))) {
             stop = 10;
             count = 1;
         }
 
-        if ((g1 == 41 && oval.k1 == 1) || (g2 == 42 && oval.k1 == 2) || ((g3 == 43) && (oval.k1 == 3))) {
+        if ((g1 == 41 && move.k1 == 1) || (g2 == 42 && move.k1 == 2) || ((g3 == 43) && (move.k1 == 3))) {
             stop = 11;
             count = 1;
         }
 
-        if ((g1 == 48 && oval.k1 == 1) || (g2 == 48 && oval.k1 == 2) || ((g3 == 48) && (oval.k1 == 3))) {
+        if ((g1 == 48 && move.k1 == 1) || (g2 == 48 && move.k1 == 2) || ((g3 == 48) && (move.k1 == 3))) {
             stop = 12;
             count = 1;
         }
-        if ((g1 == 53 && oval.k1 == 1) || (g2 == 54 && oval.k1 == 2) || ((g3 == 53) && (oval.k1 == 3))) {
+        if ((g1 == 53 && move.k1 == 1) || (g2 == 54 && move.k1 == 2) || ((g3 == 53) && (move.k1 == 3))) {
             stop = 13;
             count = 1;
         }
@@ -336,9 +336,12 @@ public class Questions {
 
 
     public void CheckPlayerAnswers1(int x, int y) {
+        player=move.k1-1;
+        System.out.println(move.k1);
         if (stop == 1) {
             if ((x >= Placesx[1]) && (x <= Placesx[1] + width) && (y >= Placesy[1]) && (y <= Placesy[1] + height)) {
                 cheking = 1;
+                score.znach[player]+=2;
             }
             if (((x >= Placesx[2]) && (x <= Placesx[2] + width) && (y >= Placesy[2]) && (y <= Placesy[2] + height)) || ((x >= Placesx[0]) && (x <= Placesx[0] + width) && (y >= Placesy[0]) && (y <= Placesy[0] + height))) {
                 cheking = 2;
@@ -450,7 +453,7 @@ public class Questions {
                 g.drawString("Вы ответили правильно", 500, 100);
                 Executors.newSingleThreadScheduledExecutor().schedule(() -> {
                     count = 0;
-                    cheking = 0;
+                    cheking =0;
                     stop = 0;
                 }, 2, TimeUnit.SECONDS);
             }

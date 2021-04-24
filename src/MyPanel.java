@@ -12,12 +12,13 @@ public class MyPanel extends JPanel implements MouseListener {
     int count = 0;
     BufferedImage hog;
     Questions questions = new Questions();
-    Oval oval = new Oval(100, 100);
-    Cube cube = new Cube();
+    Moving move = new Moving(100, 100);
+    Lamp lamp=new Lamp();
     Polya polya = new Polya();
     Score score = new Score();
     Heroes heroes=new Heroes();
     Info info = new Info(100, 100);
+    End end=new End();
 
     //QuestionEasy questioneasy = new QuestionEasy(100, 300, 100, 90);
 //QuestionNormal questionNormal = new QuestionNormal(100, 300, 100, 90);
@@ -26,9 +27,9 @@ public class MyPanel extends JPanel implements MouseListener {
 
     public MyPanel() throws IOException {
         this.hog = ImageIO.read(new File("/Users/kirillsleptsov/IdeaProjects/Harry SHprotter/src/Map Harry Potter.jpg"));
-        this.oval.Harry = ImageIO.read(new File("/Users/kirillsleptsov/IdeaProjects/Harry SHprotter/src/Гарри.png"));
-        this.oval.Hermiona = ImageIO.read(new File("/Users/kirillsleptsov/IdeaProjects/Harry SHprotter/src/Гермиона.png"));
-        this.oval.Ron = ImageIO.read(new File("/Users/kirillsleptsov/IdeaProjects/Harry SHprotter/src/Рон.png"));
+        this.move.Harry = ImageIO.read(new File("/Users/kirillsleptsov/IdeaProjects/Harry SHprotter/src/Гарри.png"));
+        this.move.Hermiona = ImageIO.read(new File("/Users/kirillsleptsov/IdeaProjects/Harry SHprotter/src/Гермиона.png"));
+        this.move.Ron = ImageIO.read(new File("/Users/kirillsleptsov/IdeaProjects/Harry SHprotter/src/Рон.png"));
 
         this.addMouseListener(this);
     }
@@ -38,11 +39,11 @@ public class MyPanel extends JPanel implements MouseListener {
         g.setColor(Color.yellow);
         g.fillRect(77, 625, 50, 50);
         g.setColor(Color.red);
-        g.drawString("Игрок" + oval.k1, 77, 655);
+        g.drawString("Игрок " + move.k1, 77, 655);
         polya.paintPolya(g);
         heroes.PaintHeroes(g);
-        oval.paint(g);
-        cube.drawCube(g);
+        move.paint(g);
+        lamp.drawLamp(g);
         score.ScoreDraw(g);
         info.PaintComponent(g);
     }
@@ -51,92 +52,90 @@ public class MyPanel extends JPanel implements MouseListener {
     public void mouseClicked(MouseEvent e) {
         info.Draw(1340, 100, e.getX(), e.getY());
         count = 0;
-        if ((questions.stop == 0) && (e.getX() >= 77) && (e.getX() <= 77 + 50) && (e.getY() >= 625) && (e.getY() <= 675) && (oval.k1 == 3) && (count == 0) && (oval.l3 != 26)) {
-            cube.k = (int) (Math.random() * 7);
+        if ((questions.stop == 0) && (e.getX() >= 77) && (e.getX() <= 77 + 50) && (e.getY() >= 625) && (e.getY() <= 675) && (move.k1 == 3) && (count == 0) && (move.l3 != 75)) {
+            lamp.k = (int) (Math.random() * 7);
             new Thread(() -> new MakeSound().playSound("/Users/kirillsleptsov/IdeaProjects/Harry SHprotter/src/zapsplat_foley_battery_aa_roll_table_001.wav")).start();
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException interruptedException) {
                 interruptedException.printStackTrace();
             }
-            if (cube.k == 0) {
-                cube.k = 1;
+            if (lamp.k == 0) {
+                lamp.k = 1;
             }
             count = 1;
-            oval.k1 = 1;
-            oval.prel3 = oval.l3;
-            oval.l3 = oval.l3 + cube.k;
-            polya.k = oval.l3;
-//            if (oval.l3 >= 26) {
-//                oval.l3 = 26;
-//                polya.k = 26;
-//                oval.f = 1;
-//            }
-            oval.tekx3 = polya.polyax[polya.k];
-            oval.teky3 = polya.polyay[polya.k];
-            oval.tekx3 = polya.polyax[oval.prel3];
-            oval.teky3 = polya.polyay[oval.prel3];
-            questions.g1 = oval.l1;
+            move.k1 = 1;
+            move.prel3 = move.l3;
+            move.l3 = move.l3 + lamp.k;
+            polya.k = move.l3;
+            if (move.l3 >= 75) {
+                move.l3 = 75;
+                polya.k = 75;
+                end.end=1;
+            }
+            move.tekx3 = polya.polyax[polya.k];
+            move.teky3 = polya.polyay[polya.k];
+            move.tekx3 = polya.polyax[move.prel3];
+            move.teky3 = polya.polyay[move.prel3];
+            questions.g1 = move.l1;
         }
 
-        if ((e.getX() >= 77) && (e.getX() <= 77 + 50) && (e.getY() >= 625) && (e.getY() <= 675) && (oval.k1 == 2) && (count == 0) && (oval.l2 != 26)) {
-            cube.k = (int) (Math.random() * 7);
+        if ((e.getX() >= 77) && (e.getX() <= 77 + 50) && (e.getY() >= 625) && (e.getY() <= 675) && (move.k1 == 2) && (count == 0) && (move.l2 != 26)) {
+            lamp.k = (int) (Math.random() * 7);
             new Thread(() -> new MakeSound().playSound("/Users/kirillsleptsov/IdeaProjects/Harry SHprotter/src/zapsplat_foley_battery_aa_roll_table_001.wav")).start();
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException interruptedException) {
                 interruptedException.printStackTrace();
             }
-            if (cube.k == 0) {
-                cube.k = 1;
+            if (lamp.k == 0) {
+                lamp.k = 1;
             }
-            oval.k1 = oval.k1 + 1;
+            move.k1 = move.k1 + 1;
             count = 1;
-            oval.prel2 = oval.l2;
-            oval.l2 = oval.l2 + cube.k;
-            polya.k = oval.l2;
-//            if (oval.l2 >= 26) {
-//                oval.l2 = 26;
-//                castle.f = 0;
-//                oval.f = 1;
-//                polya.k = 26;
-//            }
+            move.prel2 = move.l2;
+            move.l2 = move.l2 + lamp.k;
+            polya.k = move.l2;
+            if (move.l2 >= 75) {
+                move.l2 = 75;
+                polya.k = 75;
+                end.end=1;
+            }
 
-            oval.tekx2 = polya.polyax[polya.k];
-            oval.texy2 = polya.polyay[polya.k];
-            oval.tekx3 = polya.polyax[oval.prel2];
-            oval.teky3 = polya.polyay[oval.prel2];
-            questions.g2 = oval.l2;
+            move.tekx2 = polya.polyax[polya.k];
+            move.texy2 = polya.polyay[polya.k];
+            move.tekx3 = polya.polyax[move.prel2];
+            move.teky3 = polya.polyay[move.prel2];
+            questions.g2 = move.l2;
         }
 
-        if ((e.getX() >= 77) && (e.getX() <= 77 + 50) && (e.getY() >= 625) && (e.getY() <= 675) && (oval.k1 == 1) && (count == 0) && (oval.l1 != 26)) {
-            cube.k = (int) (Math.random() * 7);
+        if ((e.getX() >= 77) && (e.getX() <= 77 + 50) && (e.getY() >= 625) && (e.getY() <= 675) && (move.k1 == 1) && (count == 0) && (move.l1 != 26)) {
+            lamp.k = (int) (Math.random() * 7);
             new Thread(() -> new MakeSound().playSound("/Users/kirillsleptsov/IdeaProjects/Harry SHprotter/src/zapsplat_foley_battery_aa_roll_table_001.wav")).start();
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException interruptedException) {
                 interruptedException.printStackTrace();
             }
-            if (cube.k == 0) {
-                cube.k = 1;
+            if (lamp.k == 0) {
+                lamp.k = 1;
             }
-            oval.prel1 = oval.l1;
-            oval.l1 = oval.l1 + cube.k;
-            oval.k1 = 2;
+            move.prel1 = move.l1;
+            move.l1 = move.l1 + lamp.k;
+            move.k1 = 2;
             count = 1;
-            polya.k = oval.l1;
-//            if (oval.l1 >= 26) {
-//                oval.l1 = 26;
-//                castle.f = 0;
-//                oval.f = 1;
-//                polya.k = 26;
-//            }
-            oval.tekx1 = polya.polyax[polya.k];
-            oval.texy1 = polya.polyay[polya.k];
-            questions.g3 = oval.l3;
+            polya.k = move.l1;
+            if (move.l1 >= 75) {
+                move.l1 = 75;
+                polya.k = 75;
+                end.end=1;
+            }
+            move.tekx1 = polya.polyax[polya.k];
+            move.texy1 = polya.polyay[polya.k];
+            questions.g3 = move.l3;
         }
         info.Sravnenie();
-        score.Proverka(oval.l1, oval.l2, oval.l3);
+        score.Proverka(move.l1, move.l2, move.l3);
         questions.CheckandDraw(0,0);
     }
 
